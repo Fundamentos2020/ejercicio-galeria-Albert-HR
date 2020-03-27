@@ -22,8 +22,6 @@ function GetImages() {
     // Conectar con ajax
     // Iniciar XMLHTTPRequest
     const xhr = new XMLHttpRequest();
-    
-    console.log(url);
 
     // Abrimos la conexion
     xhr.open('GET', url, true);
@@ -114,12 +112,12 @@ function cargPag(){
 function ChangePage(e) {
     e.preventDefault();
 
-    console.log(pagAct+1);
-    console.log(cantPag);
+    window.scrollTo(0, 0); 
+
 
     let t = e.toElement.text;
     if(t === "Siguiente")
-    {    console.log("Siguiente");
+    {    
         if(parseInt(pagAct)+1 <= cantPag)
             pagAct++;
     }
@@ -127,14 +125,12 @@ function ChangePage(e) {
     {
         if(t === "Anterior")
         {
-            console.log("Anterior");
             if(parseInt(pagAct)-1  > 0)
                 pagAct--;
         }
         else
         {
             pagAct = t; 
-            console.log("Num");
         }
     }   
     GetImages();
